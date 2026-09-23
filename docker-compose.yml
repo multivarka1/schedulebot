@@ -1,0 +1,14 @@
+services:
+  schedulebot:
+    build: .
+    container_name: schedulebot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      SCHEDULE_SESSION_FILE: /data/schedule_session.json
+    volumes:
+      - schedulebot_data:/data
+
+volumes:
+  schedulebot_data:
